@@ -19,8 +19,8 @@ public class VeriTabaniBaglanti {
 		}
 		try {
 			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/siparis?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey",
-					"root", "12345");
+					"jdbc:mysql://10.1.8.20:3306/siparis?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey",
+					"ogrenci", "1234");
 			System.out.println("Baðlantý baþarýlý");
 		} catch (SQLException e) {
 			System.out.println("Baðlantý baþarýsýz");
@@ -98,8 +98,7 @@ public class VeriTabaniBaglanti {
 
 		try {
 			VeriTabaniBaglanti vt = new VeriTabaniBaglanti();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from musteri");
+	
 			String sorgu1 = "insert into musteri(kod,ad) values (?,?)";
 
 			PreparedStatement prepareStatement1 = con.prepareStatement(sorgu1);
@@ -119,8 +118,7 @@ public class VeriTabaniBaglanti {
 		}
 		try {
 			VeriTabaniBaglanti vt = new VeriTabaniBaglanti();
-			Statement stmt = con.createStatement();
-			ResultSet ss = stmt.executeQuery("select * from iletisimbilgisi");
+		
 
 			String sorgu2 = "insert into iletisimbilgisi(telefon,email,gonderiAdresi,faturaAdresi) values (?,?,?,?)";
 			PreparedStatement prepareStatement2 = con.prepareStatement(sorgu2);
@@ -174,8 +172,6 @@ public class VeriTabaniBaglanti {
 		try {
 
 			VeriTabaniBaglanti vt = new VeriTabaniBaglanti();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from kumas");
 			String sorgu = "insert into kumas(kod,birimFiyat,iplikCesidi,renk) values (?,?,?,?)";
 
 			PreparedStatement prepareStatement = con.prepareStatement(sorgu);
